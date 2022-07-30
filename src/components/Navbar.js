@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
           <img src={cw} alt="logo" className='navbarLogo' />
-          <Typography marginLeft={5}>Yusuf Blog</Typography>
+          <Typography marginLeft={3}> Yusuf Blog</Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
