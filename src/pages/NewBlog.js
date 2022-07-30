@@ -99,7 +99,7 @@ export default function NewBlog() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Add New Blog
             </Button>
           </Box>
         </Box>

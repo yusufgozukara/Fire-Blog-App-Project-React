@@ -14,11 +14,16 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import cw from '../assets/cw.jpeg';
 import { orange } from '@mui/material/colors';
+import { useNavigate } from 'react-router-dom'
+
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'About', 'Login', 'Register', 'New Blog'];
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -43,7 +48,7 @@ const Navbar = () => {
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
-          <img src={cw} alt="logo" className='navbarLogo' style={{cursor:'pointer'}} />
+          <img src={cw} alt="logo" className='navbarLogo' style={{cursor:'pointer'}} onClick={() => navigate('/')}/>
           <Typography marginLeft={3}> Yusuf Blog</Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
