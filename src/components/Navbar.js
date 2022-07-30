@@ -43,7 +43,7 @@ const Navbar = () => {
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
-          <img src={cw} alt="logo" className='navbarLogo' />
+          <img src={cw} alt="logo" className='navbarLogo' style={{cursor:'pointer'}} />
           <Typography marginLeft={3}> Yusuf Blog</Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
