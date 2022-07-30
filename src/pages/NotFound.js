@@ -18,8 +18,8 @@ import notfound from '../assets/notfound.png';
 
 export default function NotFound() {
   return (
-    <Card sx={{ maxWidth: 700, display: "flex",justifyContent: "center",alignItems: 'center' }}>
-      <CardActionArea sx={{ maxWidth: 700, display: "flex",justifyContent: "center",alignItems: 'center' }}>
+    <Card sx={{ width:'80%', margin:' 50px auto'  }}>
+      <CardActionArea >
         <CardMedia
           component="img"
           height="500"
