@@ -1,32 +1,14 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import blok from '../assets/blok.png';
-import { TextareaAutosize } from '@mui/material';
+// import { TextareaAutosize } from '@mui/material';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
@@ -66,6 +48,7 @@ export default function NewBlog() {
               id="title"
               placeholder="Title"
               name="title"
+              label='title'
               autoComplete="title"
               autoFocus
             />
@@ -74,12 +57,24 @@ export default function NewBlog() {
               required
               fullWidth
               name="image URL"
+              label='image'
               placeholder="Image URL"
               type="text"
               id="image"
               autoComplete="current-password"
             />
-            <TextareaAutosize
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label='Content'
+              name="Content"
+              placeholder="Image URL"
+              type="text"
+              id="image"
+              autoComplete="current-password"
+            />
+            {/* <TextareaAutosize
               margin="normal"
               required
               fullWidth
@@ -92,12 +87,12 @@ export default function NewBlog() {
               id="Content"
               placeholder="Content"
               autoComplete="current-password"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: 'primary.light'}}
             >
               Add New Blog
             </Button>

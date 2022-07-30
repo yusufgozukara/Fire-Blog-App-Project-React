@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import BlogCard from "../components/BlogCard";
 
 const Dashboard = () => {
   return (
@@ -18,6 +19,7 @@ const Dashboard = () => {
         </Typography>
         <p className="dashboardLine"></p>
       </div>
+      <BlogCard/>
       
     </div>
   );
