@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
   const navigate = useNavigate();
-  const currentUser = false;
+  const currentUser = true;
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

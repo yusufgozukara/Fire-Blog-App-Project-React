@@ -10,6 +10,7 @@ import NewBlog from "../pages/NewBlog";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   const [newBlogTitle, setNewBlogTitle] = useState("");
@@ -26,14 +27,26 @@ const AppRouter = () => {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/newblog" element={<NewBlog />} />
-            <Route path="/details" element={<Details />} />
             <Route path="/" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
+
+            <Route path="/about" element={<PrivateRouter/>}>
+              <Route path="" element={<About />} />
+            </Route>
+            <Route path="/profile" element={<PrivateRouter/>}>
+              <Route path="" element={<Profile />} />
+            </Route>
+            <Route path="/newblog" element={<PrivateRouter/>}>
+              <Route path="" element={<NewBlog />} />
+            </Route>
+            <Route path="/details" element={<PrivateRouter/>}>
+              <Route path="" element={<Details />} />
+            </Route>
+
+
+
           </Routes>
         </BrowserRouter>
       </BlogContext.Provider>
