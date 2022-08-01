@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -37,17 +37,21 @@ export default function BlogCard() {
         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXd7tzVernz5L6FqPNWlmSDnwgA-Pm0vL0g9Y9r2ZQ_X4L9oS0gChTjowA8s-S9KZ12co&usqp=CAU"
         alt="Görsel yazısı"
       />
+      
       <CardHeader
-        
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
+
       <CardContent>
-      
-        <Typography variant="body2" color="text.secondary">
+       <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. 
         </Typography>
+      </CardContent>
+
+      <CardContent>
+        <Typography variant='h6'><AccountCircleIcon/>clarus@gmail.com</Typography>
       </CardContent>
 
 
