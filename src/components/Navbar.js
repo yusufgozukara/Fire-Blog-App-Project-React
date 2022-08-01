@@ -18,11 +18,12 @@ import { useNavigate } from 'react-router-dom'
 
 
 // const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'About', 'Login', 'Register', 'New Blog'];
+// const settings = ['Profile', 'About', 'Login', 'Register', 'New Blog'];
 
 const Navbar = () => {
 
   const navigate = useNavigate();
+  const currentUser = true;
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -110,11 +111,33 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {currentUser ? 
+              <div>
+
+                <MenuItem>
+                  <Typography textAlign="center">About</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem>
+                  <Typography textAlign="center">New Blog</Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography textAlign="center">Profile</Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
+              </div>
+
+                : 
+                <div>
+                <MenuItem>
+                  <Typography textAlign="center">Login</Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography textAlign="center">Register</Typography>
+                </MenuItem>
+                </div>
+            }
             </Menu>
           </Box>
         </Toolbar>
