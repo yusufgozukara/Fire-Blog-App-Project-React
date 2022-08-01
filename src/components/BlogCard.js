@@ -30,14 +30,14 @@ export default function BlogCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, margin:'50px' }}>
       <CardMedia
         component="img"
         height="194"
         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXd7tzVernz5L6FqPNWlmSDnwgA-Pm0vL0g9Y9r2ZQ_X4L9oS0gChTjowA8s-S9KZ12co&usqp=CAU"
         alt="Görsel yazısı"
       />
-      
+
       <CardHeader
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
