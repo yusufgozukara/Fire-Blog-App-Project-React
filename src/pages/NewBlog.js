@@ -7,12 +7,20 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import blok from '../assets/blok.png';
+import { BlogContext } from '../contexts/BlogContext';
+import { useContext} from "react";
 // import { TextareaAutosize } from '@mui/material';
 
 
 const theme = createTheme();
 
 export default function NewBlog() {
+
+
+  const {title,setTitle} = useContext(BlogContext)
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -51,6 +59,8 @@ export default function NewBlog() {
               label='title'
               autoComplete="title"
               autoFocus
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <TextField
               margin="normal"

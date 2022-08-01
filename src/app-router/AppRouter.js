@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { BlogContext } from '../contexts/BlogContext'
@@ -12,9 +12,12 @@ import Profile from '../pages/Profile'
 import Register from '../pages/Register'
 
 const AppRouter = () => {
+
+  const [title,setTitle] = useState('');
+
   return (
     <>
-    <BlogContext.Provider>
+    <BlogContext.Provider value={{title,setTitle}}>
       <BrowserRouter>
           <Navbar/>
           <Routes>
