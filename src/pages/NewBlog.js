@@ -17,7 +17,10 @@ const theme = createTheme();
 export default function NewBlog() {
 
 
-  const {title,setTitle} = useContext(BlogContext)
+  const {newBlogTitle,setNewBlogTitle} = useContext(BlogContext)
+  const {newBlogImage,setNewBlogImage} = useContext(BlogContext)
+  const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
+  console.log(newBlogContent);
 
 
 
@@ -59,8 +62,8 @@ export default function NewBlog() {
               label='title'
               autoComplete="title"
               autoFocus
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={newBlogTitle}
+              onChange={(e) => setNewBlogTitle(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -72,6 +75,8 @@ export default function NewBlog() {
               type="text"
               id="image"
               autoComplete="current-password"
+              value={newBlogImage}
+              onChange={(e) => setNewBlogImage(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -83,6 +88,8 @@ export default function NewBlog() {
               type="text"
               id="image"
               autoComplete="current-password"
+              value={newBlogContent}
+              onChange={(e) => setNewBlogContent(e.target.value)}
             />
             {/* <TextareaAutosize
               margin="normal"
