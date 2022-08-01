@@ -7,11 +7,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import cw from '../assets/cw.jpeg';
 import { orange } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom'
@@ -23,7 +20,7 @@ import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
   const navigate = useNavigate();
-  const currentUser = true;
+  const currentUser = false;
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -115,26 +112,26 @@ const Navbar = () => {
               <div>
 
                 <MenuItem>
-                  <Typography textAlign="center">About</Typography>
+                  <Typography onClick={() => navigate('/about')}  textAlign="center">About</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography textAlign="center">New Blog</Typography>
+                  <Typography onClick={() => navigate('/newblog')} textAlign="center">New Blog</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Typography onClick={() => navigate('/profile')} textAlign="center">Profile</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography textAlign="center">Logout</Typography>
+                  <Typography onClick={() => navigate('/')}  textAlign="center">Logout</Typography>
                 </MenuItem>
               </div>
 
                 : 
                 <div>
                 <MenuItem>
-                  <Typography textAlign="center">Login</Typography>
+                  <Typography onClick={() => navigate('/login')}  textAlign="center">Login</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography textAlign="center">Register</Typography>
+                  <Typography onClick={() => navigate('/register')}  textAlign="center">Register</Typography>
                 </MenuItem>
                 </div>
             }
