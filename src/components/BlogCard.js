@@ -11,6 +11,8 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate } from 'react-router-dom';
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -24,13 +26,14 @@ const ExpandMore = styled((props) => {
 
 export default function BlogCard() {
   const [expanded, setExpanded] = React.useState(false);
+  const navigate = useNavigate()
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   return (
-    <Card sx={{ maxWidth: 345, margin:'50px' }}>
+    <Card sx={{ maxWidth: 345, margin:'50px' }} onClick={() => navigate('/details')}>
       <CardMedia
         component="img"
         height="194"
