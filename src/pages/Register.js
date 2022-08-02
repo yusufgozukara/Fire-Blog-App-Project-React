@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,11 +10,20 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createUser } from '../helpers/firebase';
+import { useNavigate } from 'react-router-dom';
 
 
 const theme = createTheme();
 
 export default function Register() {
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState()
+  const navigate = useNavigate()
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -21,6 +31,8 @@ export default function Register() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    createUser(email, password, navigate)
+    
   };
 
   return (
@@ -57,7 +69,8 @@ export default function Register() {
             <Typography component="h1" variant="h5">
             Register
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+
+            <form component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -67,6 +80,7 @@ export default function Register() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={email}
               />
               <TextField
                 margin="normal"
@@ -77,6 +91,7 @@ export default function Register() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
               />
 
               <Button
@@ -96,7 +111,7 @@ export default function Register() {
                 Sign In with Google
               </Button>
 
-            </Box>
+            </form>
           </Box>
         </Grid>
       </Grid>

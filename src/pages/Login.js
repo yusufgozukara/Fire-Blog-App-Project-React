@@ -11,6 +11,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
+import { signIn } from '../helpers/firebase';
+import { useState } from 'react';
+
 
 
 
@@ -19,10 +22,13 @@ const theme = createTheme();
 
 export default function Login() {
 
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState()
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    signIn(email, password, navigate)
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
@@ -64,7 +70,7 @@ export default function Login() {
             <Typography component="h1" variant="h5">
               Login
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <form component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -112,7 +118,7 @@ export default function Login() {
                 </Grid>
               </Grid>
 
-            </Box>
+            </form>
           </Box>
         </Grid>
       </Grid>
