@@ -14,6 +14,7 @@ import { orange } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import { useContext} from "react";
+import { logOut } from '../helpers/firebase';
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ['Profile', 'About', 'Login', 'Register', 'New Blog'];
@@ -122,7 +123,7 @@ const Navbar = () => {
                   <Typography onClick={() => navigate('/profile')} textAlign="center">Profile</Typography>
                 </MenuItem>
                 <MenuItem>
-                  <Typography onClick={() => navigate('/')}  textAlign="center">Logout</Typography>
+                  <Typography onClick={() => logOut()}  textAlign="center">Logout</Typography>
                 </MenuItem>
               </div>
 
