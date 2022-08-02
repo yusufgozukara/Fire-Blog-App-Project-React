@@ -12,7 +12,8 @@ import MenuItem from '@mui/material/MenuItem';
 import cw from '../assets/cw.jpeg';
 import { orange } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom'
-
+import { AuthContext } from '../contexts/AuthContext';
+import { useContext} from "react";
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ['Profile', 'About', 'Login', 'Register', 'New Blog'];
@@ -20,7 +21,7 @@ import { useNavigate } from 'react-router-dom'
 const Navbar = () => {
 
   const navigate = useNavigate();
-  const currentUser = false;
+  const {currentUser} = useContext(AuthContext)
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

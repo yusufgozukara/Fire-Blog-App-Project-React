@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
@@ -19,11 +20,13 @@ const AppRouter = () => {
 
   return (
     <>
+    <AuthContextProvider>
+
       <BlogContext.Provider
         value={{ newBlogTitle, setNewBlogTitle,
-                 newBlogImage, setNewBlogImage,
-                 newBlogContent, setNewBlogContent }}
-      >
+          newBlogImage, setNewBlogImage,
+          newBlogContent, setNewBlogContent }}
+          >
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -50,6 +53,7 @@ const AppRouter = () => {
           </Routes>
         </BrowserRouter>
       </BlogContext.Provider>
+        </AuthContextProvider>
     </>
   );
 };
