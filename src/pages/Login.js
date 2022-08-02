@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom'
-import { signIn } from '../helpers/firebase';
+import { signIn, signUpProvider } from '../helpers/firebase';
 import { useState } from 'react';
 
 
@@ -35,6 +35,10 @@ export default function Login() {
       password: data.get('password'),
     });
   };
+
+  const handleProviderLogin = () => {
+    signUpProvider(navigate)
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,6 +112,7 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 1, mb: 2 }}
+                onClick={handleProviderLogin}
               >
                 Sign In with Google
               </Button>

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -19,15 +19,19 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-export const createUser = async (email, password, navigate) => {
+export const createUser = async (email, password, navigate, displayName) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
+    // await updateProfile(auth.currentUser, {
+    //     displayName: {email},
+    //     //  photoURL: "https://example.com/jane-q-user/profile.jpg"
+    //   })
     navigate('/')
-    console.log(userCredential);
+    console.log(displayName);
   } catch (error) {
     console.log(error);
   }
@@ -61,4 +65,15 @@ export const userObserver = (setCurrentUser) => {
 
 export const logOut = () => {
     signOut(auth);
+}
+
+export const signUpProvider = (navigate) => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result)
+    navigate('/')
+  }).catch((error) => {
+    console.log(error)
+  });
 }

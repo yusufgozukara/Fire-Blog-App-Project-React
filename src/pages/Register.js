@@ -31,7 +31,8 @@ export default function Register() {
       email: data.get('email'),
       password: data.get('password'),
     });
-    createUser(email, password, navigate)
+    const displayName = `${email}`
+    createUser(email, password, navigate, displayName)
     
   };
 
@@ -102,14 +103,14 @@ export default function Register() {
               >
                 Register
               </Button>
-              <Button
+              {/* <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 1, mb: 2 }}
               >
                 Sign In with Google
-              </Button>
+              </Button> */}
 
             </form>
           </Box>
