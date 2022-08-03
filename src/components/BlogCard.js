@@ -13,6 +13,7 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
 import defaultPhoto from '../assets/defaultPhoto.jpg';
+import { Grid } from '@mui/material';
 // import {useFetch} from '../helpers/functions';
 
 const ExpandMore = styled((props) => {
@@ -41,7 +42,7 @@ export default function BlogCard({item}) {
   return (
 
     <Card sx={{ maxWidth: 345, margin:'50px' }} onClick={() => navigate('/details')}>
-
+      
       <CardMedia
         component="img"
         height="194"
