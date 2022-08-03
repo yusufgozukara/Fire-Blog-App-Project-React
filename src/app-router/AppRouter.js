@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
+import { AddBlog } from "../helpers/firebase";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Details from "../pages/Details";
@@ -13,10 +14,20 @@ import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
 
+const initialValues = {title :'', image:'', content:''};
+
 const AppRouter = () => {
   const [newBlogTitle, setNewBlogTitle] = useState("");
   const [newBlogImage, setNewBlogImage] = useState("");
   const [newBlogContent, setNewBlogContent] = useState("");
+
+  const [info, setInfo] = useState(initialValues);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(info);
+    AddBlog(info);
+  }
 
   return (
     <>
@@ -25,7 +36,8 @@ const AppRouter = () => {
       <BlogContext.Provider
         value={{ newBlogTitle, setNewBlogTitle,
           newBlogImage, setNewBlogImage,
-          newBlogContent, setNewBlogContent }}
+          newBlogContent, setNewBlogContent,
+          info, setInfo, handleSubmit }}
           >
         <BrowserRouter>
           <Navbar />

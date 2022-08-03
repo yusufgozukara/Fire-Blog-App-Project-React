@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getDatabase } from "firebase/database";
+// import {firebase} from './firebase'
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -76,4 +78,13 @@ export const signUpProvider = (navigate) => {
   }).catch((error) => {
     console.log(error)
   });
+}
+
+
+export const AddBlog = () => {
+
+  const db = getDatabase(firebase);
+  const userRef= ref(db,'users/')
+  const newUserRef=push(userRef)
+
 }

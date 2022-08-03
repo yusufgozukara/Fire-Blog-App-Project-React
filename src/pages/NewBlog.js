@@ -16,22 +16,39 @@ const theme = createTheme();
 
 export default function NewBlog() {
 
-
+  const { info, setInfo} = useContext(BlogContext)
   const {newBlogTitle,setNewBlogTitle} = useContext(BlogContext)
   const {newBlogImage,setNewBlogImage} = useContext(BlogContext)
   const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
-  console.log(newBlogContent);
+  const {handleSubmit} = useContext(BlogContext);
+
+  // console.log(newBlogTitle,newBlogImage, newBlogContent)
 
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     title: data.get('newBlogTitle'),
+  //     image: data.get('newBlogImage'),
+  //     content: data.get('newBlogContent'),
+  //   });
+  //   const title = data.get('newBlogTitle');
+  //   const image = data.get('newBlogImage');
+  //   const content = data.get('newBlogContent')
+  //   console.log(title, image, content)
+  // };
+
+  const handleChange= (e) => {
+    e.preventDefault();
+    const name= e.target.name;
+    const value=e.target.value;
+    // console.log(name,value);
+    setInfo({...info, [name]:value})
+    // console.log(info);
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -51,7 +68,7 @@ export default function NewBlog() {
           <Typography component="h1" variant="h5" >
             New Blog
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <form component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -62,34 +79,40 @@ export default function NewBlog() {
               label='title'
               autoComplete="title"
               autoFocus
-              value={newBlogTitle}
-              onChange={(e) => setNewBlogTitle(e.target.value)}
+              // value={newBlogTitle}
+              value={info.title}
+              // onChange={(e) => setNewBlogTitle(e.target.value)}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="image URL"
+              name="image"
               label='image'
               placeholder="Image URL"
               type="text"
               id="image"
               autoComplete="current-password"
-              value={newBlogImage}
-              onChange={(e) => setNewBlogImage(e.target.value)}
+              // value={newBlogImage}
+              value={info.image}
+              // onChange={(e) => setNewBlogImage(e.target.value)}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
               required
               fullWidth
               label='Content'
-              name="Content"
+              name="content"
               placeholder="Image URL"
               type="text"
               id="image"
               autoComplete="current-password"
-              value={newBlogContent}
-              onChange={(e) => setNewBlogContent(e.target.value)}
+              // value={newBlogContent}
+              value={info.content}
+              // onChange={(e) => setNewBlogContent(e.target.value)}
+              onChange={handleChange}
             />
             {/* <TextareaAutosize
               margin="normal"
@@ -113,7 +136,7 @@ export default function NewBlog() {
             >
               Add New Blog
             </Button>
-          </Box>
+          </form>
         </Box>
 
       </Container>

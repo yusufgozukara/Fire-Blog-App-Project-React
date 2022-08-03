@@ -31,6 +31,9 @@ export default function Register() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    const email= data.get('email');
+     const password= data.get('password');
+    console.log(email);
     const displayName = `${email}`
     createUser(email, password, navigate, displayName)
     
