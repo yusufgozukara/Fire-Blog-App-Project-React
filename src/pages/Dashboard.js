@@ -33,12 +33,16 @@ const Dashboard = () => {
         </Typography>
         <p className="dashboardLine"></p>
       </div>
-      <Grid sx={{display:'flex', flex:'wrap'}}>
+      <Grid container spacing={1}
+      justifyContent='center'
+      alignItems='center'
+      >
       {isLoading? (<h1>Loading</h1>)
     : (
       blogList.map((item,index)=> (
-        <BlogCard item={item} key = {index}/>
-
+        <Grid xs={12} sm={6} md={4} lg={3}>
+         <BlogCard item={item} key = {index}/>
+        </Grid>
       ))
     )  
     
