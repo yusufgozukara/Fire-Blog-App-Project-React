@@ -38,10 +38,19 @@ export default function BlogCard({item}) {
 
   const date1 = item.date[2]+' '+item.date[1]+' '+item.date[3]+' , '+item.date[0];
 
+  const handleDetails = () => {
+    // if (user) {
+    //     navigate(`/details/${title.split(' ').join('-')}`, { state: { id, userId,author, content, title, image} })
+    // } else {
+    //     toast.error('You Should Login to See Details')
+    // }
+
+}
+
 
   return (
 
-    <Card sx={{ maxWidth: 345, margin:'50px' }} onClick={() => navigate('/details')}>
+    <Card sx={{ maxWidth: 345,margin:'50px', maxHeight:650, overflow:'auto'}} onClick={handleDetails}>
       
       <CardMedia
         component="img"
@@ -78,9 +87,9 @@ export default function BlogCard({item}) {
 
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
+        <CardContent >
+          <Typography paragraph >Method:</Typography>
+          <Typography paragraph >
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes.
           </Typography>

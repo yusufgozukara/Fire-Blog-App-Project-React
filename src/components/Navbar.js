@@ -49,7 +49,7 @@ const Navbar = () => {
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
 
           <img src={cw} alt="logo" className='navbarLogo' style={{cursor:'pointer'}} onClick={() => navigate('/')}/>
-          <Typography marginLeft={3}> Blog Sayfama Hoşgeldiniz.. Değerli katkılarınızı bekliyorum.</Typography>
+          <Typography marginLeft={3}> Blog Sayfama Hoşgeldiniz..</Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

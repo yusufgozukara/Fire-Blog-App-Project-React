@@ -26,7 +26,11 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function BlogCard() {
+export default function Details() {
+
+  // const { state } = useLocation()
+  // const navigate = useNavigate()
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
