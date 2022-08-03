@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getDatabase } from "firebase/database";
-// import {firebase} from './firebase'
+
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -17,6 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export default app;
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
@@ -81,10 +81,3 @@ export const signUpProvider = (navigate) => {
 }
 
 
-export const AddBlog = () => {
-
-  const db = getDatabase(firebase);
-  const userRef= ref(db,'users/')
-  const newUserRef=push(userRef)
-
-}

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
-import { AddBlog } from "../helpers/firebase";
+import { AddBlog } from "../helpers/functions";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Details from "../pages/Details";
