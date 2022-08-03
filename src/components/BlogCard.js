@@ -46,6 +46,7 @@ export default function BlogCard({item}) {
       <CardMedia
         component="img"
         height="194"
+        
         // onError={defaultPhoto}
         image={ item.image ? item.image :defaultPhoto }
         alt="Görsel yazısı"
