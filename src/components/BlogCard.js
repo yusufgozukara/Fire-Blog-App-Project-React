@@ -12,6 +12,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
+import {useFetch} from '../helpers/functions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,6 +32,8 @@ export default function BlogCard() {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const {isLoading, blogList} = useFetch();
 
   return (
     <Card sx={{ maxWidth: 345, margin:'50px' }} onClick={() => navigate('/details')}>
