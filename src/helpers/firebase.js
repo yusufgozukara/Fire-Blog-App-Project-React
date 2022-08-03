@@ -56,10 +56,11 @@ export const signIn = async (email, password, navigate) => {
 export const userObserver = (setCurrentUser) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
- 
+            console.log('giriş yapıldı')
           setCurrentUser(user)
         } else {
           // User is signed out
+          console.log('yapılmadı')
           setCurrentUser(false)
         }
       });

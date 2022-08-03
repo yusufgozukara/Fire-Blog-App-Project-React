@@ -8,7 +8,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import blok from '../assets/blok.png';
 import { BlogContext } from '../contexts/BlogContext';
-import { useContext} from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from '../contexts/AuthContext';
 // import { TextareaAutosize } from '@mui/material';
 
 
@@ -22,34 +23,27 @@ export default function NewBlog() {
   const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
   const {handleSubmit} = useContext(BlogContext);
 
-  // console.log(newBlogTitle,newBlogImage, newBlogContent)
+  const date = new Date().toString().split(' ')
+  // console.log(date);
 
-
-
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     title: data.get('newBlogTitle'),
-  //     image: data.get('newBlogImage'),
-  //     content: data.get('newBlogContent'),
-  //   });
-  //   const title = data.get('newBlogTitle');
-  //   const image = data.get('newBlogImage');
-  //   const content = data.get('newBlogContent')
-  //   console.log(title, image, content)
-  // };
+  const {currentUser} = useContext(AuthContext);
+  useEffect(() => {
+    console.log(currentUser);
+    
+  
+  }, [currentUser])
 
   const handleChange= (e) => {
     e.preventDefault();
     const name= e.target.name;
     const value=e.target.value;
     // console.log(name,value);
-    setInfo({...info, [name]:value})
+    setInfo({...info, [name]:value, date:date, like:3, comment:2, author:currentUser.email})
     // console.log(info);
+
   }
 
+ 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

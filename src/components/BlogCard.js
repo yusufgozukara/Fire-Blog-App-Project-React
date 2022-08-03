@@ -12,7 +12,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
-import {useFetch} from '../helpers/functions';
+import defaultPhoto from '../assets/defaultPhoto.jpg';
+// import {useFetch} from '../helpers/functions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -25,7 +26,8 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function BlogCard() {
+export default function BlogCard({item}) {
+  console.log(item)
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate()
 
@@ -33,31 +35,34 @@ export default function BlogCard() {
     setExpanded(!expanded);
   };
 
-  const {isLoading, blogList} = useFetch();
+  const date1 = item.date[2]+' '+item.date[1]+' '+item.date[3]+' , '+item.date[0];
+
 
   return (
+
     <Card sx={{ maxWidth: 345, margin:'50px' }} onClick={() => navigate('/details')}>
+
       <CardMedia
         component="img"
         height="194"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXd7tzVernz5L6FqPNWlmSDnwgA-Pm0vL0g9Y9r2ZQ_X4L9oS0gChTjowA8s-S9KZ12co&usqp=CAU"
+        // onError={defaultPhoto}
+        image={ item.image ? item.image :defaultPhoto }
         alt="Görsel yazısı"
       />
 
       <CardHeader
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={item.title}
+        subheader={date1}
       />
 
       <CardContent>
        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. 
+          {item.content}
         </Typography>
       </CardContent>
 
       <CardContent>
-        <Typography variant='h6'><AccountCircleIcon/>clarus@gmail.com</Typography>
+        <Typography variant='h6'><AccountCircleIcon/>{item.author}</Typography>
       </CardContent>
 
 

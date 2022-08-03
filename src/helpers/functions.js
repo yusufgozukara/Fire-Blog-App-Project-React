@@ -12,28 +12,38 @@ export const AddBlog = (info) => {
     set(newUserRef,{
       title:info.title,
       image:info.image,
-      content:info.content
+      content:info.content,
+      comment:info.comment,
+      like:info.like,
+      author:info.author,
+      date:info.date
     })
   
   }
 
   export const useFetch = () => {
-    const [isLoading, setIsLoading] = useState();
+    const [isLoading, setIsLoading] = useState(true);
     const [blogList, setBlogList] = useState();
 
     useEffect(() => {
-      const db = getDatabase(app);
+      try {
+              const db = getDatabase(app);
       const userRef= ref(db,'users/')
       onValue(userRef, (snapshot) => {
         const data = snapshot.val();
         const userArray=[]
-
+          // console.log(data)
         for (let id in data){
             userArray.push({id,...data[id]})
         }
         setBlogList(userArray);
         setIsLoading(false);
+        // console.log(blogList)
     })
+      } catch (error) {
+        console.log(error)
+      }
+
     
   }, [])
   return {isLoading, blogList}
