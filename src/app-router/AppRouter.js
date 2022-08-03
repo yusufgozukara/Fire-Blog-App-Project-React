@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { AddBlog } from "../helpers/functions";
+import {ToastContainer} from "react-toastify";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Details from "../pages/Details";
@@ -42,6 +43,7 @@ const AppRouter = () => {
           >
         <BrowserRouter>
           <Navbar />
+          <ToastContainer/>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

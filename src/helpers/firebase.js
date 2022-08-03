@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {Toastify} from './toastify'
 
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -33,6 +34,7 @@ export const createUser = async (email, password, navigate, displayName) => {
     //     //  photoURL: "https://example.com/jane-q-user/profile.jpg"
     //   })
     navigate('/')
+    Toastify('Hoşgeldiniz...')
     console.log(displayName);
   } catch (error) {
     console.log(error);
@@ -47,6 +49,7 @@ export const signIn = async (email, password, navigate) => {
             password
           );
           navigate('/')
+          Toastify('Hoşgeldiniz...')
           console.log(userCredential);
     } catch (error) {
         console.log(error);
@@ -58,6 +61,7 @@ export const userObserver = (setCurrentUser) => {
         if (user) {
             console.log('giriş yapıldı')
           setCurrentUser(user)
+          // Toastify('Hoşgeldiniz...')
         } else {
           // User is signed out
           console.log('yapılmadı')
@@ -76,6 +80,7 @@ export const signUpProvider = (navigate) => {
   .then((result) => {
     console.log(result)
     navigate('/')
+    Toastify('Hoşgeldiniz...')
   }).catch((error) => {
     console.log(error)
   });

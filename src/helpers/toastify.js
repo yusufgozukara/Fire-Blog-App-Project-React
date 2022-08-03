@@ -1,9 +1,9 @@
 import {toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 
-const Toastify = (msg) => {
-    toast.warn(msg, {
+
+ export const Toastify = (msg) => {
+    toast.success(msg, {
     position: "top-center",
     autoClose: 3000,
     hideProgressBar: false,
@@ -13,4 +13,5 @@ const Toastify = (msg) => {
     progress: undefined,
     });
 }
+
 
