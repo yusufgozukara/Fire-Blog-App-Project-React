@@ -14,6 +14,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const initialValues = {title :'', image:'', content:''};
 
@@ -61,6 +62,9 @@ const AppRouter = () => {
             </Route>
             <Route path="/details/:id" element={<PrivateRouter/>}>
               <Route path="" element={<Details />} />
+            </Route>
+            <Route path="/updateblog/:id" element={<PrivateRouter/>}>
+              <Route path="" element={<UpdateBlog />} />
             </Route>
             
           </Routes>

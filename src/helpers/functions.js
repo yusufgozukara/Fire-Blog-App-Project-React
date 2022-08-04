@@ -1,5 +1,5 @@
 
-import { getDatabase, ref, push, set, onValue } from "firebase/database";
+import { getDatabase, ref, push, set, onValue, remove } from "firebase/database";
 import { useEffect, useState } from "react";
 import app from './firebase'
 
@@ -48,4 +48,10 @@ export const AddBlog = (info) => {
   }, [])
   return {isLoading, blogList}
 
+}
+
+export const blogDelete = (id) => {
+  const db = getDatabase(app);
+  remove(ref(db,"users/"+id));
+  console.log('deleted')
 }

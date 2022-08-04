@@ -11,8 +11,12 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useLocation} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import defaultPhoto from "../assets/defaultPhoto.jpg";
+import { Button, Grid } from '@mui/material';
+import { Container } from '@mui/system';
+import { AuthContext } from '../contexts/AuthContext';
+import { blogDelete } from '../helpers/functions';
 
 
 
@@ -29,9 +33,15 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Details() {
+
+  const navigate = useNavigate();
+  const {currentUser} = React.useContext(AuthContext);
+  console.log(currentUser.email);
+
+
   const item = useLocation()
   // const {author, content, date, id, image, title} = item;
-  console.log(item.state)
+  console.log(item.state.id)
 
 
   const [expanded, setExpanded] = React.useState(false);
@@ -42,8 +52,14 @@ export default function Details() {
 
   const date1 =  item.state.date[2] +  " " +  item.state.date[1] +  " " +  item.state.date[3] +  " , " +  item.state.date[0];
 
+  const handleDelete = () => {
+    blogDelete(item.state.id);
+    navigate('/');
+  }
+
 
   return (
+    <Container>
     <Card sx={{ width: '80%', height:'80vh', margin:'50px auto' }}>
       <CardMedia
         component="img"
@@ -86,5 +102,21 @@ export default function Details() {
         </CardContent>
       </Collapse>
     </Card>
+
+    {item.state.author ==  currentUser.email && (
+    <Grid container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={3}
+                gap={25}
+
+            >
+                <Button onClick={() => navigate(`/updateblog/${item.state.id}`, {state: item})} variant="contained" color="primary">Update</Button>
+                <Button onClick={handleDelete} variant="contained" color="warning">Delete</Button>
+    </Grid>
+      
+    ) }
+    </Container>
   );
 }
