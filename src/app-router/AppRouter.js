@@ -23,7 +23,7 @@ const AppRouter = () => {
   const [newBlogContent, setNewBlogContent] = useState("");
 
   const [info, setInfo] = useState(initialValues);
-  const [user, setUser] =useState(null);
+  // const [user, setUser] =useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,12 +62,7 @@ const AppRouter = () => {
             <Route path="/details/:id" element={<PrivateRouter/>}>
               <Route path="" element={<Details />} />
             </Route>
-            {/* <Route path="/details" element={<PrivateRouter/>}>
-              <Route path="" element={<Details />} />
-            </Route> */}
-
-
-
+            
           </Routes>
         </BrowserRouter>
       </BlogContext.Provider>

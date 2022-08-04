@@ -29,9 +29,10 @@ export const createUser = async (email, password, navigate, displayName) => {
       email,
       password
     );
+    console.log(userCredential)
     // await updateProfile(auth.currentUser, {
     //     displayName: {email},
-    //     //  photoURL: "https://example.com/jane-q-user/profile.jpg"
+    //      photoURL: "https://example.com/jane-q-user/profile.jpg"
     //   })
     navigate('/')
     Toastify('Hoşgeldiniz...')

@@ -12,7 +12,7 @@ const Dashboard = () => {
   }, [currentUser])
   
   const {isLoading, blogList} = useFetch();
-  console.log(blogList);
+  // console.log(blogList);
 
   return (
     <div>

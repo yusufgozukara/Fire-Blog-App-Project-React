@@ -29,8 +29,9 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Details() {
-  const {state} = useLocation()
-  console.log(state)
+  const item = useLocation()
+  // const {author, content, date, id, image, title} = item;
+  console.log(item.state)
 
 
   const [expanded, setExpanded] = React.useState(false);
@@ -39,7 +40,7 @@ export default function Details() {
     setExpanded(!expanded);
   };
 
-  // const date1 =  item.date[2] +  " " +  item.date[1] +  " " +  item.date[3] +  " , " +  item.date[0];
+  const date1 =  item.state.date[2] +  " " +  item.state.date[1] +  " " +  item.state.date[3] +  " , " +  item.state.date[0];
 
 
   return (
@@ -47,22 +48,22 @@ export default function Details() {
       <CardMedia
         component="img"
         height="350px"
-        image={state.image}
+        image={item.state.image}
         alt="Görsel yazısı"
       />
       
-      <CardHeader title={state.title} 
-      // subheader={date1} 
+      <CardHeader title={item.title} 
+      subheader={date1} 
       />
 
       <CardContent>
        <Typography variant="body2" color="text.secondary">
-       {state.content} 
+       {item.state.content} 
         </Typography>
       </CardContent>
 
       <CardContent>
-        <Typography variant='h6'><AccountCircleIcon/>{state.author}</Typography>
+        <Typography variant='h6'><AccountCircleIcon/>{item.state.author}</Typography>
       </CardContent>
 
 

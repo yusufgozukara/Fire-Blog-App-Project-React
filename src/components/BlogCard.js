@@ -29,8 +29,8 @@ const ExpandMore = styled((props) => {
 
 export default function BlogCard({ item }) {
   const {author, content, date, id, image, title} = item;
-  console.log(item);
-  console.log(id);
+  // console.log(item);
+  // console.log(id);
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
 
@@ -47,10 +47,16 @@ export default function BlogCard({ item }) {
     " , " +
     item.date[0];
 
+    const handleClick = () => {
+      navigate(`/details/${id}`, {state: item});
+    }
+
   return (
     <Card
-      sx={{ maxWidth: 345, margin: "50px", maxHeight: 650, overflow: "auto" }}
-      onClick={navigate(`/details/${id}`, {state: {author, content, date, id, image, title}})}
+      sx={{ maxWidth: 345, margin: "50px", maxHeight: 650, cursor:'pointer'}}
+      // onClick={navigate(`/details/${id}`, {state: {author, content, date, id, image, title}})}
+      // onClick={navigate(`/details/${id}`, {state: item})}
+      onClick={handleClick}
     >
       <CardMedia
         component="img"
@@ -64,7 +70,12 @@ export default function BlogCard({ item }) {
       subheader={date1} />
 
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" style={{maxWidth: '100%',
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 5,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',}} >
           {item.content}
         </Typography>
       </CardContent>
