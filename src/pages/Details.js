@@ -116,7 +116,17 @@ export default function Details() {
                 <Button onClick={handleDelete} variant="contained" color="warning">Delete</Button>
     </Grid>
       
-    ) }
+      ) }
+    <Grid container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={3}
+                gap={25}
+
+            >
+                <Button  onClick={() => navigate(-1)} variant="contained" color="secondary">Home</Button>
+    </Grid>
     </Container>
   );
 }
