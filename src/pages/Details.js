@@ -68,7 +68,7 @@ export default function Details() {
         alt="Görsel yazısı"
       />
       
-      <CardHeader title={item.title} 
+      <CardHeader title={item.state.title} 
       subheader={date1} 
       />
 
