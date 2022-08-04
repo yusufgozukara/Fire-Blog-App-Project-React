@@ -26,24 +26,19 @@ export default function UpdateBlog() {
   const updateItem = item.state.state
   console.log(updateItem.title)
   
-  
-  const {newBlogTitle,setNewBlogTitle} = useState(updateItem.title)
-  const {newBlogImage,setNewBlogImage} = useState(updateItem.image)
-  const {newBlogContent, setNewBlogContent} = useState(updateItem.content)
+  const [newBlogTitle,setNewBlogTitle] = useState(updateItem.title)
+  const [newBlogImage,setNewBlogImage] = useState(updateItem.image)
+  const [newBlogContent, setNewBlogContent] = useState(updateItem.content)
   const {handleSubmit} = useContext(BlogContext);
   
   const date = new Date().toString().split(' ')
   // console.log(date);
 
-
   const {currentUser} = useContext(AuthContext);
   useEffect(() => {
     // console.log(currentUser);
     
-  
   }, [currentUser])
-
-
 
   const handleUpdate = (e) => {
 e.preventDefault();
@@ -66,7 +61,7 @@ e.preventDefault();
           <img src={blok} alt="blok" />
           
           <Typography component="h1" variant="h5" >
-            New Blog
+            Update Blog
           </Typography>
           <form component="form" onSubmit={handleUpdate} noValidate sx={{ mt: 1 }}>
             <TextField

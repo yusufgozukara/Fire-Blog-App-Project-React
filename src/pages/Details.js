@@ -36,12 +36,12 @@ export default function Details() {
 
   const navigate = useNavigate();
   const {currentUser} = React.useContext(AuthContext);
-  console.log(currentUser.email);
+  // console.log(currentUser.email);
 
 
   const item = useLocation()
   // const {author, content, date, id, image, title} = item;
-  console.log(item.state.id)
+  // console.log(item.state.id)
 
 
   const [expanded, setExpanded] = React.useState(false);
