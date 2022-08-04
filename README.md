@@ -1,3 +1,13 @@
+# Blog App Project
+
+After logging in to my blog page, you can enter a new blog. You can navigate through the pages.
+
+I used React, Material UI and Firebase in this project
+
+##For try and look [Please Click Here](https://blog-app-project-firebase.netlify.app/)
+![]()
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
