@@ -8,15 +8,12 @@ const Dashboard = () => {
 
   const {currentUser} = useContext(AuthContext);
   useEffect(() => {
-    console.log(currentUser);
-    
-  
+    // console.log(currentUser);
   }, [currentUser])
   
-
-
   const {isLoading, blogList} = useFetch();
   console.log(blogList);
+
   return (
     <div>
       <div className="dashboard">
@@ -40,7 +37,7 @@ const Dashboard = () => {
       {isLoading? (<h1>Loading</h1>)
     : (
       blogList.map((item,index)=> (
-        <Grid xs={12} sm={6} md={4} lg={3}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
          <BlogCard item={item} key = {index}/>
         </Grid>
       ))

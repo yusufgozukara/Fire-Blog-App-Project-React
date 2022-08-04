@@ -1,7 +1,3 @@
-
-
-
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -15,6 +11,12 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useLocation} from 'react-router-dom';
+import defaultPhoto from "../assets/defaultPhoto.jpg";
+
+
+
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -27,9 +29,9 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Details() {
+  const {state} = useLocation()
+  console.log(state)
 
-  // const { state } = useLocation()
-  // const navigate = useNavigate()
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -37,29 +39,30 @@ export default function Details() {
     setExpanded(!expanded);
   };
 
+  // const date1 =  item.date[2] +  " " +  item.date[1] +  " " +  item.date[3] +  " , " +  item.date[0];
+
+
   return (
     <Card sx={{ width: '80%', height:'80vh', margin:'50px auto' }}>
       <CardMedia
         component="img"
         height="350px"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXd7tzVernz5L6FqPNWlmSDnwgA-Pm0vL0g9Y9r2ZQ_X4L9oS0gChTjowA8s-S9KZ12co&usqp=CAU"
+        image={state.image}
         alt="Görsel yazısı"
       />
       
-      <CardHeader
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+      <CardHeader title={state.title} 
+      // subheader={date1} 
       />
 
       <CardContent>
        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. 
+       {state.content} 
         </Typography>
       </CardContent>
 
       <CardContent>
-        <Typography variant='h6'><AccountCircleIcon/>clarus@gmail.com</Typography>
+        <Typography variant='h6'><AccountCircleIcon/>{state.author}</Typography>
       </CardContent>
 
 

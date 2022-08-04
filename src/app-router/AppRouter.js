@@ -59,7 +59,7 @@ const AppRouter = () => {
             <Route path="/newblog" element={<PrivateRouter/>}>
               <Route path="" element={<NewBlog />} />
             </Route>
-            <Route path="/:id" element={<PrivateRouter/>}>
+            <Route path="/details/:id" element={<PrivateRouter/>}>
               <Route path="" element={<Details />} />
             </Route>
             {/* <Route path="/details" element={<PrivateRouter/>}>
