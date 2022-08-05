@@ -52,7 +52,7 @@ export default function BlogCard({ item }) {
     }
 
   return (
-    <Card
+    <Card className="cardcss"
       sx={{ maxWidth: 345, margin: "50px", maxHeight: 650, cursor:'pointer'}}
       // onClick={navigate(`/details/${id}`, {state: {author, content, date, id, image, title}})}
       // onClick={navigate(`/details/${id}`, {state: item})}
