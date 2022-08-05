@@ -17,7 +17,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="dashboard">
-        <p className="dashboardLine"></p>
+
         <Typography
           variant="h2"
           margin="0 10px"
@@ -26,9 +26,9 @@ const Dashboard = () => {
           display="inline-block"
           fontFamily="Girassol"
         >
-          DashboarD
+         <span className="dashboardLine">─────</span>  DashboarD <span className="dashboardLine">─────</span>
         </Typography>
-        <p className="dashboardLine"></p>
+
       </div>
       <Grid container spacing={1}
       justifyContent='center'
