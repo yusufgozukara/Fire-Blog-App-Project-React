@@ -12,6 +12,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from '../contexts/AuthContext';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import { UpdateBlogFunc } from '../helpers/functions';
 // import { TextareaAutosize } from '@mui/material';
 
 
@@ -41,7 +42,8 @@ export default function UpdateBlog() {
   }, [currentUser])
 
   const handleUpdate = (e) => {
-e.preventDefault();
+    e.preventDefault();
+    UpdateBlogFunc();
   }
 
  

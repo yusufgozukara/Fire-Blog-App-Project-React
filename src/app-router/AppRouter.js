@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
-import { AddBlog } from "../helpers/functions";
+import { AddBlog, UpdateBlogFunc } from "../helpers/functions";
 import {ToastContainer} from "react-toastify";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
@@ -32,7 +32,11 @@ const AppRouter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    AddBlog(info);
+    if(info.id){
+      UpdateBlogFunc(info)
+    } else {
+      AddBlog(info);
+    }
     setInfo(initialValues);
     // navigate('/');
     

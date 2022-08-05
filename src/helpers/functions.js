@@ -1,7 +1,8 @@
 
-import { getDatabase, ref, push, set, onValue, remove } from "firebase/database";
+import { getDatabase, ref, push, set, onValue, remove, update } from "firebase/database";
 import { useEffect, useState } from "react";
 import app from './firebase'
+import {Toastify} from './toastify'
 
 
 export const AddBlog = (info) => {
@@ -18,7 +19,7 @@ export const AddBlog = (info) => {
       author:info.author,
       date:info.date
     })
-  
+    Toastify('Blog eklendi...')
   }
 
   export const useFetch = () => {
@@ -53,5 +54,13 @@ export const AddBlog = (info) => {
 export const blogDelete = (id) => {
   const db = getDatabase(app);
   remove(ref(db,"users/"+id));
-  console.log('deleted')
+  Toastify('Blog silindi...')
+}
+
+export const UpdateBlogFunc = (info) => {
+  const db = getDatabase(app);
+  const updates = {}
+  updates['/users/' + info.id] = info;
+
+  return update(ref(db), updates);
 }
