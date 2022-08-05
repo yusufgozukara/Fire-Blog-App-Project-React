@@ -53,7 +53,7 @@ export default function BlogCard({ item }) {
 
   return (
     <Card className="cardcss"
-      sx={{ maxWidth: 345, margin: "50px", maxHeight: 650, cursor:'pointer'}}
+      sx={{ width: 345, margin: "50px", maxHeight: 650, cursor:'pointer'}}
       onClick={handleClick}
     >
       <CardMedia

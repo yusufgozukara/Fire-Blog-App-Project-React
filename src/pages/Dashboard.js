@@ -17,7 +17,7 @@ const Dashboard = () => {
   return (
     <div>
       <div className="dashboard">
-
+<span className="dashboardLine">──────────</span> 
         <Typography
           variant="h2"
           margin="0 10px"
@@ -26,9 +26,9 @@ const Dashboard = () => {
           display="inline-block"
           fontFamily="Girassol"
         >
-         <span className="dashboardLine">─────</span>  DashboarD <span className="dashboardLine">─────</span>
+          DashboarD 
         </Typography>
-
+<span className="dashboardLine">──────────</span>
       </div>
       <Grid container spacing={1}
       justifyContent='center'
@@ -37,7 +37,7 @@ const Dashboard = () => {
       {isLoading? (<h1>Loading</h1>)
     : (
       blogList.map((item,index)=> (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid container item xs={12} sm={12} md={6} lg={4} xl={3} justifyContent='center'>
          <BlogCard item={item} key = {index}/>
         </Grid>
       ))

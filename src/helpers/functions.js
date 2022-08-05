@@ -61,6 +61,7 @@ export const UpdateBlogFunc = (info) => {
   const db = getDatabase(app);
   const updates = {}
   updates['/users/' + info.id] = info;
+  console.log(info)
 
   return update(ref(db), updates);
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
@@ -18,40 +18,36 @@ import UpdateBlog from "../pages/UpdateBlog";
 import { useNavigate } from 'react-router-dom'
 
 
-const initialValues = {title :'', image:'', content:''};
+
 
 const AppRouter = () => {
-  const [newBlogTitle, setNewBlogTitle] = useState("");
-  const [newBlogImage, setNewBlogImage] = useState("");
-  const [newBlogContent, setNewBlogContent] = useState("");
-  
-  const [info, setInfo] = useState(initialValues);
+
+  // const { info, setInfo} = useContext(BlogContext)
+  // const {newBlogTitle,setNewBlogTitle} = useContext(BlogContext)
+  // const {newBlogImage,setNewBlogImage} = useContext(BlogContext)
+  // const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
+  // const {handleSubmit} = useContext(BlogContext);
+
+  // const [newBlogTitle, setNewBlogTitle] = useState("");
+  // const [newBlogImage, setNewBlogImage] = useState("");
+  // const [newBlogContent, setNewBlogContent] = useState("");
+
+
   // const [user, setUser] =useState(null);
   
   // const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(info.id){
-      UpdateBlogFunc(info)
-    } else {
-      AddBlog(info);
-    }
-    setInfo(initialValues);
-    // navigate('/');
-    
-    
-  }
+
 
   return (
     <>
     <AuthContextProvider>
 
       <BlogContext.Provider
-        value={{ newBlogTitle, setNewBlogTitle,
-          newBlogImage, setNewBlogImage,
-          newBlogContent, setNewBlogContent,
-          info, setInfo, handleSubmit }}
+        // value={{ newBlogTitle, setNewBlogTitle,
+        //   newBlogImage, setNewBlogImage,
+        //   newBlogContent, setNewBlogContent,
+        //   info, setInfo, handleSubmit }}
           >
         <BrowserRouter>
           <Navbar />

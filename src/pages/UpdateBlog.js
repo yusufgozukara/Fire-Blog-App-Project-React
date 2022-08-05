@@ -10,7 +10,7 @@ import blok from '../assets/blok.png';
 import { BlogContext } from '../contexts/BlogContext';
 import { useContext, useEffect } from "react";
 import { AuthContext } from '../contexts/AuthContext';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { UpdateBlogFunc } from '../helpers/functions';
 // import { TextareaAutosize } from '@mui/material';
@@ -25,12 +25,12 @@ export default function UpdateBlog() {
   const item = useLocation()
   // const {author, content, date, id, image, title} = item;
   const updateItem = item.state.state
-  console.log(updateItem.title)
+  console.log(updateItem.id)
   
   const [newBlogTitle,setNewBlogTitle] = useState(updateItem.title)
   const [newBlogImage,setNewBlogImage] = useState(updateItem.image)
   const [newBlogContent, setNewBlogContent] = useState(updateItem.content)
-  const {handleSubmit} = useContext(BlogContext);
+  // const {handleSubmit} = useContext(BlogContext);
   
   const date = new Date().toString().split(' ')
   // console.log(date);
@@ -38,12 +38,17 @@ export default function UpdateBlog() {
   const {currentUser} = useContext(AuthContext);
   useEffect(() => {
     // console.log(currentUser);
-    
   }, [currentUser])
+
+  const navigate = useNavigate()
+
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    UpdateBlogFunc();
+    const info = {title:newBlogTitle, image:newBlogImage, content:newBlogContent, date:date,author:currentUser.email, id:updateItem.id}
+    UpdateBlogFunc(info);
+    navigate('/');
+
   }
 
  

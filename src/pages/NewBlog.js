@@ -10,18 +10,42 @@ import blok from '../assets/blok.png';
 import { BlogContext } from '../contexts/BlogContext';
 import { useContext, useEffect } from "react";
 import { AuthContext } from '../contexts/AuthContext';
+import { AddBlog, UpdateBlogFunc } from '../helpers/functions';
+import { useNavigate } from 'react-router-dom';
 // import { TextareaAutosize } from '@mui/material';
+
+const initialValues = {title :'', image:'', content:''};
 
 
 const theme = createTheme();
 
 export default function NewBlog() {
 
-  const { info, setInfo} = useContext(BlogContext)
-  const {newBlogTitle,setNewBlogTitle} = useContext(BlogContext)
-  const {newBlogImage,setNewBlogImage} = useContext(BlogContext)
-  const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
-  const {handleSubmit} = useContext(BlogContext);
+  // const { info, setInfo} = useContext(BlogContext)
+  // const {newBlogTitle,setNewBlogTitle} = useContext(BlogContext)
+  // const {newBlogImage,setNewBlogImage} = useContext(BlogContext)
+  // const {newBlogContent, setNewBlogContent} = useContext(BlogContext)
+  // const {handleSubmit} = useContext(BlogContext);
+
+  // const [newBlogTitle, setNewBlogTitle] = useState("");
+  // const [newBlogImage, setNewBlogImage] = useState("");
+  // const [newBlogContent, setNewBlogContent] = useState("");
+
+    const navigate = useNavigate()
+
+  
+  const [info, setInfo] = React.useState(initialValues);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+      AddBlog(info);
+    
+    setInfo(initialValues);
+    navigate('/');
+    
+    
+  }
 
   const date = new Date().toString().split(' ')
   // console.log(date);
