@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AuthContextProvider from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
@@ -15,6 +15,8 @@ import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
 import UpdateBlog from "../pages/UpdateBlog";
+import { useNavigate } from 'react-router-dom'
+
 
 const initialValues = {title :'', image:'', content:''};
 
@@ -22,13 +24,18 @@ const AppRouter = () => {
   const [newBlogTitle, setNewBlogTitle] = useState("");
   const [newBlogImage, setNewBlogImage] = useState("");
   const [newBlogContent, setNewBlogContent] = useState("");
-
+  
   const [info, setInfo] = useState(initialValues);
   // const [user, setUser] =useState(null);
+  
+  // const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     AddBlog(info);
+    setInfo(initialValues);
+    // navigate('/');
+    
     
   }
 

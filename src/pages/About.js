@@ -9,7 +9,7 @@ const About = () => {
       
       <div className='aboutContainer'>
         <img src={coding} alt="coderMan" className='coderImg' />
-        <h1>About Software Developer <span style={{fontSize:'2rem', color:'white'}}>Yusuf</span></h1>
+        <h1>About Software Developer <span style={{fontSize:'2rem', color:'#1976D2'}}>Yusuf</span></h1>
         <div className='textDiv'>
           <h3>I'm Yusuf.</h3>
           <p>I'm currently learning Full-Stack Development Languages.</p>

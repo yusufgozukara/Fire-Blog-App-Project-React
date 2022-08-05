@@ -29,10 +29,6 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
     const email= data.get('email');
     const password= data.get('password');
     signIn(email, password, navigate)

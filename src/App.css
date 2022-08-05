@@ -23,7 +23,8 @@
 .aboutBody{
   width: 100%;
   height: 100vh;
-  background-color: rgb(85, 146, 216);
+  background-color: rgb(176, 212, 255);
+  background-color: white;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -45,16 +46,16 @@
 
 .homePageButton{
   cursor: pointer;
-  width: 200px;
-  height: 40px;
+  width: 150px;
+  height: 30px;
   border-radius: 10px;
-  background-color:  #ffa726;
-  border: 1px solid black;
+  background-color:  transparent;
+  border: 2px solid #4285F4;
   margin-top: 2rem;
   font-size: 1.05rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 .homePageButton:hover{
-  background-color: #f7b149;
+  background-color: #89b5fa;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
