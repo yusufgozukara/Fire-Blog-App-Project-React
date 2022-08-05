@@ -7,7 +7,7 @@
 ## For try and look [Please Click Here](https://blog-app-project-firebase.netlify.app/)
 
 
-![](intro.JPG)
+![](intro.gif)
 
 
 # Getting Started with Create React App
