@@ -20,8 +20,6 @@ const theme = createTheme();
 
 export default function UpdateBlog() {
 
-  
-  
   const item = useLocation()
   // const {author, content, date, id, image, title} = item;
   const updateItem = item.state.state
